@@ -4,6 +4,8 @@ import java.util.Vector;
 
 public class MyVectorTest {
 	public static void main(String[] args) {
+		Vector v1 = new Vector();
+		
 		MyVector v = new MyVector(2);
 //		System.out.println(v1.get(100));
 		v.add(new String("1"));
@@ -17,11 +19,14 @@ public class MyVectorTest {
 		v.add(new String("4"));
 		v.add(new String("4"));
 		v.add(new String("4"));
+		
 		System.out.println(v.size());
 		System.out.println(v.get(0));
 		System.out.println(v.get(1));
 		System.out.println(v.get(2));
+//		System.out.println(v.get(5));
 		System.out.println(v);
+		
 		System.out.println(v.remove("4"));
 		System.out.println(v.remove("1"));
 		System.out.println(v.remove("2"));
