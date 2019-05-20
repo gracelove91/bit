@@ -19,7 +19,7 @@ public class MyVectorTest {
 		v.add(new String("4"));
 		v.add(new String("4"));
 		v.add(new String("4"));
-		
+		v.add(null);
 		System.out.println(v.size());
 		System.out.println(v.get(0));
 		System.out.println(v.get(1));

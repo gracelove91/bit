@@ -41,6 +41,9 @@ public class MyVector {
 	// temp는 이제 필요없으므로 null해준다?
 	// for문을 이용해서 저장된 요소가 null인지 확인한 후에 해당인덱스 위치에 obj를 넣어준다.
 	void add(Object obj) {
+		if(obj == null) {
+			throw new IllegalArgumentException("NULL값 넣지마세요!!");
+		}
 		if (size >= capacity()) { // 먼저 실객체 수인 size와 배열의 길이인 capacity를 비교해서 실객체수가 같거나 크
 			Object[] temp = new Object[objArr.length * 2]; // 원래 배열보다 2배 큰 배열을 새로 생성한다.
 			System.arraycopy(objArr, 0, temp, 0, objArr.length); // 원래 배열에 저장되있는 요소를 새로 만든 배열에 복사한다.
