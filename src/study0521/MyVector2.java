@@ -1,10 +1,12 @@
 package study0521;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import study0520.myvector.MyVector;
 
 public class MyVector2 extends MyVector implements Iterator{
+
 	int cursor = 0;
 	int lastRet = -1;
 	
