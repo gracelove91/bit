@@ -1,5 +1,7 @@
 package study0523.Exercise11_12;
 
+import java.util.HashMap;
+
 /**
  * 
  * [11-12] 다음은 섯다게임에서 카드의 순위를 결정하는 등급목록(족보)이다. HashMap에 등급과 점수를 저장하는
@@ -10,15 +12,42 @@ package study0523.Exercise11_12;
  *
  */
 public class Exercise11_12 {
+	public static void main(String[] args) {
+		SutdaDeck deck = new SutdaDeck();
+		
+		deck.shuffle();
+		Player p1 = new Player("타짜", deck.pick(), deck.pick());
+		Player p2 = new Player("고수", deck.pick(), deck.pick());
+		
+		System.out.println(p1 + " "+deck.getPoint(p1));
+		System.out.println(p2 + " "+deck.getPoint(p2));
+	}
 
 }
 
 class SutdaDeck {
 	final int CARD_NUM = 20;
 	SutdaCard[] cards = new SutdaCard[CARD_NUM];
+	
+	int pos = 0;			//다음에 가져올 카드 위치.
+	HashMap<String, Integer> jokbo = new HashMap<>();	//족보를 저장할 HashMap.
+	
+	SutdaDeck(){
+		for(int i = 0; i < cards.length; i++) {
+			int num = i % 10 + 1;
+			boolean isKwang = i < 10 && (num==1 || num==3 || num==8);
+			
+			cards[i] = new SutdaCard(num, isKwang);
+			System.out.println(cards[i]);
+		}
+		
+		registerJokbo();
+	}
 
 	void registerJokbo() {
-		
+		for(int i = 0; i < cards.length; i++) {
+//			jokbo.put(key, value)			
+		}
 	}
 	
 	int getPoint(Player p) {
