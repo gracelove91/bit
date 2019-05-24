@@ -38,7 +38,7 @@ class SutdaDeck {
 		*/ 
 		
 		if(c1.isKwang == true && c2.isKwang == true) {
-			
+			//jokbo
 		}
 	}
 	
