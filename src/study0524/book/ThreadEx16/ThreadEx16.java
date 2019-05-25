@@ -11,21 +11,24 @@ public class ThreadEx16 {
 		Thread th2 = new Thread(r2, "**");
 		Thread th3 = new Thread(r3, "***");
 		
+		Thread tmp = new Thread();
+		tmp.start();
+		
 		th1.start();
 		th2.start();
 		th3.start();
 		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			r1.suspend();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			r2.suspend();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			r1.resume();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			r1.stop();
 			r2.stop();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			r3.stop();
 		} catch (Exception e) {
 			e.printStackTrace();

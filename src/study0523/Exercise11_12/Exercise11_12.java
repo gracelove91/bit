@@ -12,7 +12,7 @@ import java.util.HashMap;
  *
  */
 public class Exercise11_12 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		SutdaDeck deck = new SutdaDeck();
 		
 		deck.shuffle();
@@ -45,9 +45,29 @@ class SutdaDeck {
 	}
 
 	void registerJokbo() {
-		for(int i = 0; i < cards.length; i++) {
-//			jokbo.put(key, value)			
-		}
+		jokbo.put("KK", 4000);
+		jokbo.put("1010",3100); 
+		jokbo.put("99", 3090); 
+		jokbo.put("88", 3080); 
+		jokbo.put("77", 3070); 
+		jokbo.put("66", 3060); 
+		jokbo.put("55", 3050); 
+		jokbo.put("44", 3040); 
+		jokbo.put("33", 3030); 
+		jokbo.put("22", 3020); 
+		jokbo.put("11", 3010);
+		jokbo.put("12", 2060); 
+		jokbo.put("21", 2060); 
+		jokbo.put("14", 2050); 
+		jokbo.put("41", 2050); 
+		jokbo.put("19", 2040); 
+		jokbo.put("91", 2040); 
+		jokbo.put("110", 2030); 
+		jokbo.put("101", 2030); 
+		jokbo.put("104", 2020); 
+		jokbo.put("410", 2020); 
+		jokbo.put("46", 2010);
+		jokbo.put("64", 2010);
 	}
 	
 	int getPoint(Player p) {
@@ -65,14 +85,33 @@ class SutdaDeck {
 		(c1.num + c2.num) % 10 + 1000
 		4. Player의 점수(point)에 계산한 값을 저장한다
 		*/ 
-		
 		if(c1.isKwang == true && c2.isKwang == true) {
-			//jokbo
+			result = jokbo.get("KK");
+		}else {
+			String numKey = c1.num +""+c2.num;
+			result = jokbo.get(numKey);
+			
+			if(result == null) {
+				result = (c1.num + c2.num) % 10 + 1000;
+			}
 		}
+		
+		p.point = result;
+		
+		return result;
 	}
 	
 	SutdaCard pick() throws Exception{
+		SutdaCard c = null;
 		
+		if(0 <= pos && pos < CARD_NUM) {
+			c = cards[pos];
+			cards[pos++] = null;
+		}else {
+			throw new Exception("남아있는 카드가 없습니다.");
+		}
+		
+		return c;
 	}
 	
 	void shuffle() {

@@ -90,12 +90,10 @@ public class Exercise11_9 {
 		for(int i = 0; i < length; i++) {
 			Student s = list.get(i);
 			if(s.ban != prevBan) {			//현재 반과 전 반이 다르면 prevBan과 prevRank 초기화해준다.
-				System.out.println("TLqkf");
 				prevBan = s.ban;
 				prevRank = -1;
 				s.classRank = 1;
 			}else if(s.ban == prevBan) {		//현재반과 전 반이 같으면 전 학생의 total과 현 학생의 total을 비교한다. (prevTotal , s.total)
-				System.out.println("sadkjas");
 				s.classRank = prevRank + 1;
 				prevRank = s.classRank;
 			}
