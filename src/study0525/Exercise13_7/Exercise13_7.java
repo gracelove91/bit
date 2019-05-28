@@ -10,13 +10,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Exercise13_7 extends Frame implements MouseListener{
-	final int LINE_NUM = 9; //오목판 줄 수.
-	final int LINE_WIDTH = 30; //오목판 줄 간격.
+	final int LINE_NUM = 9;                             //오목판 줄 수.
+	final int LINE_WIDTH = 30;                          //오목판 줄 간격.
 	final int BOARD_SIZE = LINE_WIDTH * (LINE_NUM - 1); //오목판의 크기.
 	final int STONE_SIZE = (int)(LINE_WIDTH * 0.8);     //돌의 크기.
 	
-	final int X0;
-	final int Y0;
+	final int X0;		//오목의 시작판 x위치.
+	final int Y0;		//오목의 시작판 y위치.
 	
 	final int FRAME_WIDTH;	//프레임의 폭.
 	final int FRAME_HEIGHT; //프레임의 높이.

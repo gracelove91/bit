@@ -59,21 +59,7 @@ public class Exercise13_5 extends Frame{
 	//내부클래스??
 	class BtnEventHandler implements ActionListener{
 		public void actionPerformed(ActionEvent ae) {
-			Button b = (Button) ae.getSource(); //이벤트가 일어난 소스를 가져온다.
-			int month = curMon.get(Calendar.MONTH);
-			
-			System.out.println(curMon.get(Calendar.MONTH));
-			//버튼의 변수명은 못가져오나??
-			// < 버튼 누르면 현재 title이 가지고있는 Calendar인스턴스의 MONTH를 -1 해준다.
-			// > 버튼 누르면 현재 title이 가지고있는 Calendar인스턴스의 MONTH를 +1 해준다.
-			// 현재 title이 가지고 있는 Calendar 인스턴스는 뭐지?
-			if(b.getLabel().equals("<")) {
-				curMon.add(Calendar.MONTH, -1);
-			}else if(b.getLabel().equals(">")) {
-				curMon.add(Calendar.MONTH, 1);
-			}
-			
-			setDays(curMon);
+		
 		}
 	}
 	
