@@ -68,7 +68,7 @@ public class Exercise11_14 {
 		System.out.println("이름, 반, 번호, 국어성적, 영어성적, 수학성적 의 순으로 공백없이 입력하세요. ");
 		while (true) {
 			System.out.print(">>");
-			s = new Scanner(System.in);	//자꾸 빈값 들어가서 새로 만들었음.
+			s.nextLine();
 			String record = s.nextLine();
 			if (record.trim().equalsIgnoreCase("q")) {
 				break;
