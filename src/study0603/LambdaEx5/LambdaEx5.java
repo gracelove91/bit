@@ -9,10 +9,10 @@ import java.util.function.Supplier;
 
 public class LambdaEx5 {
 	public static void main(String[] args) {
-		Supplier<Integer> s = () ->
-		Consumer<Integer> c
-		Predicate<Integer> p
-		Function<Integer, Integer> f
+		Supplier<Integer> s = () -> (int)(Math.random() * 100)+1;
+		Consumer<Integer> c = i -> System.out.println(i + ", ");
+		Predicate<Integer> p = i -> i % 2==0;
+		Function<Integer, Integer> f = i -> i / 10 * 10;
 		
 		List<Integer> list = new ArrayList<>();
 		makeRandomList(s, list);
@@ -23,7 +23,7 @@ public class LambdaEx5 {
 		
 	}
 	
-	static <T> List<T> doSomething(Function<T, T>, Consumer<T> c, List<T> list){
+	static <T> List<T> doSomething(Function<T, T> f, List<T> list){
 		List<T> newList = new ArrayList<>();
 		for(T i : list) {
 			newList.add(f.apply(i));
@@ -32,7 +32,7 @@ public class LambdaEx5 {
 		return newList;
 	}
 	
-	static <T> void printEvenNum(Predicate<T> p, Consumer<T> c, List<T>, list) {
+	static <T> void printEvenNum(Predicate<T> p, Consumer<T> c, List<T> list) {
 		System.out.print("[");
 		for(T i : list) {
 			if(p.test(i)) {
