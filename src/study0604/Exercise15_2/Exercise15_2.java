@@ -1,6 +1,6 @@
 package study0604.Exercise15_2;
 
-import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -22,7 +22,19 @@ public class Exercise15_2 {
 		path += "/bin/study0604/Exercise15_2/Exercise15_2.class";
 		
 		File f2 = new File(path);
-
+		//
+		FileInputStream fis = new FileInputStream(f2);
+//		PrintStream ps = new PrintStream(f2);
 		
+		int data = 0;
+		int count = 0;
+		while((data = fis.read()) != -1) {
+			count++;
+			System.out.printf("%02x ", data);
+			if(count % 16 == 0) {
+				System.out.println();
+			}
+		}
+			
 	}
 }
