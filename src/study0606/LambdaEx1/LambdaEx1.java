@@ -11,7 +11,7 @@ public class LambdaEx1 {
 		excute(f);
 		
 		Object o = (MyFunction)(() -> {});
-		String s = (Object)((MyFunction)(() -> {})).toString();
+		String s = ((Object)((MyFunction)(() -> {}))).toString();
 	}
 	
 	static void excute(MyFunction f) {

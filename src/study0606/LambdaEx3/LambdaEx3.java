@@ -14,7 +14,7 @@ public class LambdaEx3 {
 			i = 20;	
 			
 			MyFunction f = () -> {
-				i = 50;
+				
 			};
 		}
 	}
