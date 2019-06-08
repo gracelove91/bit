@@ -1,10 +1,14 @@
 package study0607.StreamEx7;
 
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.partitioningBy;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import static java.util.stream.Collectors.*;
-import static java.util.Comparator.*;
 
 class Student{
 	String name;
@@ -84,11 +88,16 @@ public class StreamEx7 {
 		for(Student s  : maleStudent) System.out.println(s);
 		for(Student s : femaleStudent) System.out.println(s);
 		
-		System.out.println("%n2. 단순분할 + 통계(성별 학생수)%n");
+		System.out.printf("%n2. 단순분할 + 통계(성별 학생수)%n");
 		Map<Boolean, Long> stuNumBySex = Stream.of(stuArr).collect(partitioningBy(Student::isMale, counting()));
 		
 		System.out.println("남학생 수 : "+stuNumBySex.get(true));
 		System.out.println("여학생 수 : "+stuNumBySex.get(false));
+		
+		System.out.printf("%n3. 단순분할 + 통계(성별 1등)%n");
+		Map<Boolean, Object> topScoreBySex = Stream.of(stuArr)
+				.collect(partitioningBy(Student::isMale,
+						Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Student::getScore)), Optional::get)));
 		
 		
 	}
